@@ -124,6 +124,7 @@ void board_dfu_init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 #endif
 
+#ifndef USB_NO_ID_PIN
   /* This for ID line debug */
   GPIO_InitStruct.Pin = GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -131,7 +132,7 @@ void board_dfu_init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
+#endif
   // Enable USB OTG clock
   __HAL_RCC_USB_OTG_FS_CLK_ENABLE();
 
