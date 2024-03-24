@@ -73,6 +73,7 @@
 #define UF2_INDEX_URL     "https://stm32-base.org/boards/STM32F411CEU6-WeAct-Black-Pill-V2.0.html"
 
 #define USB_NO_VBUS_PIN   1
+#define USB_NO_ID_PIN 1
 
 #define TINYUF2_PROTECT_BOOTLOADER 0
 
