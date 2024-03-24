@@ -62,6 +62,7 @@ void board_init(void)
   HAL_GPIO_Init(BUTTON_PORT, &GPIO_InitStruct);
 #endif
 
+
 #ifdef LED_PIN
   GPIO_InitStruct.Pin = LED_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -124,6 +125,7 @@ void board_dfu_init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 #endif
 
+#ifndef USB_NO_ID_PIN
   /* This for ID line debug */
   GPIO_InitStruct.Pin = GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -131,7 +133,7 @@ void board_dfu_init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
+#endif
   // Enable USB OTG clock
   __HAL_RCC_USB_OTG_FS_CLK_ENABLE();
 
@@ -267,10 +269,18 @@ uint8_t board_usb_get_serial(uint8_t serial_id[16])
 // LED pattern
 //--------------------------------------------------------------------+
 
+#ifdef LED_PIN
 void board_led_write(uint32_t state)
 {
+
   HAL_GPIO_WritePin(LED_PORT, LED_PIN, state ? LED_STATE_ON : (1-LED_STATE_ON));
 }
+#else
+void board_led_write(uint32_t state)
+{
+}
+
+#endif
 
 #if NEOPIXEL_NUMBER
 #define MAGIC_800_INT   900000  // ~1.11 us -> 1.2  field
