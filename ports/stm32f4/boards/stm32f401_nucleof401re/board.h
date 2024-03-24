@@ -28,30 +28,23 @@
 //--------------------------------------------------------------------+
 // LED
 //--------------------------------------------------------------------+
-/**
-#define LED_PIN               GPIO_PIN_13
-#define LED_PORT              GPIOC
-#define LED_STATE_ON          1
-*/
 
-#define BUTTON_PIN            2
-#define BUTTON_PORT           GPIOB
-#define BUTTON_STATE_ACTIVE   0
+#define LED_PORT              GPIOC
+#define LED_PIN               GPIO_PIN_13
+#define LED_STATE_ON          1
 
 //--------------------------------------------------------------------+
 // Neopixel
 //--------------------------------------------------------------------+
 
-#define NEOPIXEL_NUMBER       0
-/*
 //// Number of neopixels
+#define NEOPIXEL_NUMBER       0
 // Brightness percentage from 1 to 255
 #define NEOPIXEL_BRIGHTNESS   0x10
 
-#define NEOPIXEL_PORT         GPIOA
-#define NEOPIXEL_PIN          GPIO_PIN_7
+#define NEOPIXEL_PORT         GPIOC
+#define NEOPIXEL_PIN          GPIO_PIN_0
 #define NEOPIXEL_PIN_MODE     GPIO_MODE_OUTPUT_PP
-*/
 
 //--------------------------------------------------------------------+
 // Flash
@@ -71,26 +64,23 @@
 #define USB_PRODUCT       "STM32F401CxUx"
 
 #define UF2_PRODUCT_NAME  USB_MANUFACTURER " " USB_PRODUCT
-#define UF2_BOARD_ID      "GH61"
-#define UF2_VOLUME_LABEL  "GH61"
+#define UF2_BOARD_ID      "BlackPill"
+#define UF2_VOLUME_LABEL  "BlackPill"
 #define UF2_INDEX_URL     "https://stm32-base.org/boards/STM32F411CEU6-WeAct-Black-Pill-V2.0.html"
 
 #define USB_NO_VBUS_PIN   1
-#define USB_NO_ID_PIN 1
-
-#define TINYUF2_PROTECT_BOOTLOADER 0
 
 //--------------------------------------------------------------------+
 // UART
 //--------------------------------------------------------------------+
 
-//#define UART_DEV              USART1
-#define UART_CLOCK_ENABLE     __HAL_RCC_USART1_CLK_ENABLE
-#define UART_CLOCK_DISABLE    __HAL_RCC_USART1_CLK_DISABLE
+#define UART_DEV              USART2
+#define UART_CLOCK_ENABLE     __HAL_RCC_USART2_CLK_ENABLE
+#define UART_CLOCK_DISABLE    __HAL_RCC_USART2_CLK_DISABLE
 #define UART_GPIO_PORT        GPIOA
-#define UART_GPIO_AF          GPIO_AF7_USART1
-#define UART_TX_PIN           GPIO_PIN_9
-#define UART_RX_PIN           GPIO_PIN_10
+#define UART_GPIO_AF          GPIO_AF7_USART2
+#define UART_TX_PIN           GPIO_PIN_2
+#define UART_RX_PIN           GPIO_PIN_3
 
 //--------------------------------------------------------------------+
 // RCC Clock
