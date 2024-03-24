@@ -57,8 +57,11 @@
 // Flash
 //--------------------------------------------------------------------+
 
+// reserved for uf2 bootloader 64kb or 0x10000
+#define BOARD_RESERVED_FLASH_SIZE (BOARD_FLASH_APP_START - FLASH_BASE_ADDR)
 // Flash size of the board
-#define BOARD_FLASH_SIZE      (256 * 1024)
+// 16KB *4 , 64KB x1 , 128KBx1
+#define BOARD_FLASH_SIZE      (64 * 1024)
 #define BOARD_FLASH_SECTORS   6
 
 //--------------------------------------------------------------------+
@@ -83,6 +86,7 @@
 //--------------------------------------------------------------------+
 // UART
 //--------------------------------------------------------------------+
+
 
 //#define UART_DEV              USART1
 #define UART_CLOCK_ENABLE     __HAL_RCC_USART1_CLK_ENABLE
